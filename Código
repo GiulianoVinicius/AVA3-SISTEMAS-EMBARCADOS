@@ -1,0 +1,25 @@
+#define BUZZER D3
+#define LED D2
+#define PORTA D5
+#define BOTAO D6
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(BUZZER, OUTPUT);
+  pinMode(LED, OUTPUT);
+  pinMode(PORTA, INPUT_PULLUP);
+  pinMode(BOTAO, INPUT_PULLUP);
+}
+
+void loop() {
+  if (digitalRead(BOTAO) == 0) {
+    digitalWrite(LED, HIGH);
+    digitalWrite(BUZZER, HIGH);
+    delay(3000);
+    digitalWrite(BUZZER, LOW);
+  }
+  if (digitalRead(PORTA) == 0) {
+    digitalWrite(LED, LOW);
+  }
+}
